@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label>Apellido</label>
+                <input type="text">
+            </div>
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text">
+            </div>
+            <div class="form-group">
+                <label>Fecha de Nacimiento</label>
+                <div class="form-row">
+                    <div class="col">
+                        <select id="diaNacimiento">
+                            <option value="">Día</option>
+                            <!-- Se generan opciones de días con JavaScript -->
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select id="mesNacimiento">
+                            <option value="">Mes</option>
+                            <!-- Se generan opciones de meses con JavaScript -->
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select id="anioNacimiento">
+                            <option value="">Año</option>
+                            <!-- Se generan opciones de años con JavaScript -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Ciudad De Nacimiento</label>
+                <select id="ciudadNacimiento">
+                    <option value="">Selecciona una ciudad</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>País De Nacimiento</label>
+                <select id="paisNacimiento" onchange="cargarCiudades(this.value, 'ciudadNacimiento')">
+                    <option value="">Selecciona un país</option>
+                    <option value="USA">Estados Unidos</option>
+                    <option value="Canada">Canadá</option>
+                    <option value="Mexico">México</option>
+                    <!-- Agrega más países según sea necesario -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Nacionalidad</label>
+                <select id="nacionalidad">
+                    <option value="">Selecciona una nacionalidad</option>
+                    <option value="Americana">Americana</option>
+                    <option value="Canadiense">Canadiense</option>
+                    <option value="Mexicana">Mexicana</option>
+                    <!-- Agrega más nacionalidades según sea necesario -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Número De Pasaporte</label>
+                <input type="text">
+            </div>
+            <div class="form-group">
+                <label>País donde ha sido emitido su pasaporte</label>
+                <select id="paisEmisionPasaporte">
+                    <option value="">Selecciona un país</option>
+                    <option value="USA">Estados Unidos</option>
+                    <option value="Canada">Canadá</option>
+                    <option value="Mexico">México</option>
+                    <!-- Agrega más países según sea necesario -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Fecha De Emisión del pasaporte</label>
+                <div class="form-row">
+                    <div class="col">
+                        <select id="diaEmision">
+                            <option value="">Día</option>
+                            <!-- Se generan opciones de días con JavaScript -->
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select id="mesEmision">
+                            <option value="">Mes</option>
+                            <!-- Se generan opciones de meses con JavaScript -->
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select id="anioEmision">
+                            <option value="">Año</option>
+                            <!-- Se generan opciones de años con JavaScript -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Fecha de vencimiento de pasaporte</label>
+                <div class="form-row">
+                    <div class="col">
+                        <select id="diaVencimiento">
+                            <option value="">Día</option>
+                            <!-- Se generan opciones de días con JavaScript -->
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select id="mesVencimiento">
+                            <option value="">Mes</option>
+                            <!-- Se generan opciones de meses con JavaScript -->
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select id="anioVencimiento">
+                            <option value="">Año</option>
+                            <!-- Se generan opciones de años con JavaScript -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script >
+    const ciudadesPorPais = {
+        USA: ["Nueva York", "Los Ángeles", "Chicago"],
+        Canada: ["Toronto", "Vancouver", "Montreal"],
+        Mexico: ["Ciudad de México", "Guadalajara", "Monterrey"]
+    };
+    
+    function cargarCiudades(pais, ciudadSelectId) {
+        const ciudadSelect = document.getElementById(ciudadSelectId);
+        ciudadSelect.innerHTML = '<option value="">Selecciona una ciudad</option>';
+    
+        if (ciudadesPorPais[pais]) {
+            ciudadesPorPais[pais].forEach(ciudad => {
+                const option = document.createElement('option');
+                option.value = ciudad;
+                option.textContent = ciudad;
+                ciudadSelect.appendChild(option);
+            });
+        }
+    }
+    
+    function cargarFechas() {
+        const dias = [...Array(31).keys()].map(i => i + 1);
+        const meses = [
+            "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", 
+            "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+        ];
+        const anios = [...Array(101).keys()].map(i => 2024 - i);
+    
+        const selectDias = document.querySelectorAll('select[id^="dia"]');
+        const selectMeses = document.querySelectorAll('select[id^="mes"]');
+        const selectAnios = document.querySelectorAll('select[id^="anio"]');
+    
+        selectDias.forEach(select => {
+            dias.forEach(dia => {
+                const option = document.createElement('option');
+                option.value = dia;
+                option.textContent = dia;
+                select.appendChild(option);
+            });
+        });
+    
+        selectMeses.forEach(select => {
+            meses.forEach((mes, index) => {
+                const option = document.createElement('option');
+                option.value = index + 1;
+                option.textContent = mes;
+                select.appendChild(option);
+            });
+        });
+    
+        selectAnios.forEach(select => {
+            anios.forEach(anio => {
+                const option = document.createElement('option');
+                option.value = anio;
+                option.textContent = anio;
+                select.appendChild(option);
+            });
+        });
+    }
+    
+    document.addEventListener('DOMContentLoaded', cargarFechas);
+    </script>
+</body>
+</html>
