@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: #2e2e2e;
 }
 
 .container {
@@ -25,6 +25,7 @@ label {
     flex: 1;
     margin-right: 10px;
     font-weight: bold;
+    text-align:right;
 }
 
 .form-row {
@@ -79,7 +80,15 @@ input[type="color"],
     margin-top: 5px;
 }
 
+.col {
+flex: 1;
+}
 
+.col select {
+width: 150px; /* Hacer que cada select ocupe todo el ancho de su contenedor */
+}
+  
+ 
 
 
 
