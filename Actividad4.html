@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfume Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .item {
+            text-align: center;
+            margin: 10px;
+            flex-basis: calc(25% - 20px); /* Ajuste para 4 columnas */
+            box-sizing: border-box;
+        }
+        .item img {
+            max-width: 60%;
+            height: auto;
+        }
+        .item .name {
+            font-weight: bold;
+        }
+        .item .brand,
+        .item .size {
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">
+            <img src="image1.png" alt="Eau Du Soir">
+            <div class="name">EAU DU SOIR</div>
+            <div class="brand">SISLEY</div>
+            <div class="size">EDP 100ML 3.3FL. OZ</div>
+        </div>
+        <div class="item">
+            <img src="image2.png" alt="Love In Black">
+            <div class="name">LOVE IN BLACK</div>
+            <div class="brand">CREED</div>
+            <div class="size">75ML 2.5FL. OZ</div>
+        </div>
+        <div class="item">
+            <img src="image3.jpg" alt="Coeur De Fleur">
+            <div class="name">COEUR DE FLEUR</div>
+            <div class="brand">MILLER HARRIS</div>
+            <div class="size">EDP 100ML 3.3FL. OZ</div>
+        </div>
+        <div class="item">
+            <img src="image4.jpg" alt="Fleur Oriental">
+            <div class="name">FLEUR ORIENTAL</div>
+            <div class="brand">MILLER HARRIS</div>
+            <div class="size">EDP 100ML 3.3FL. OZ</div>
+        </div>
+        <div class="item">
+            <img src="image5.jpg" alt="Geranium Bourbon">
+            <div class="name">GERANIUM BOURBON</div>
+            <div class="brand">MILLER HARRIS</div>
+            <div class="size">EDT 100ML 3.3FL. OZ</div>
+        </div>
+        <div class="item">
+            <img src="image6.jpg" alt="Osmanthus">
+            <div class="name">OSMANTHUS</div>
+            <div class="brand">FREDERIC MALLE</div>
+            <div class="size">75ML 2.5FL. OZ</div>
+        </div>
+        <div class="item">
+            <img src="image7.jpg" alt="Frangipani">
+            <div class="name">FRANGIPANI</div>
+            <div class="brand">FREDERIC MALLE</div>
+            <div class="size">75ML 2.5FL. OZ</div>
+        </div>
+        <div class="item">
+            <img src="image8.jpg" alt="Sampaguita">
+            <div class="name">SAMPAGUITA</div>
+            <div class="brand">FREDERIC MALLE</div>
+            <div class="size">75ML 2.5FL. OZ</div>
+        </div>
+    </div>
+</body>
+</html>
